@@ -60,7 +60,7 @@ export function Home() {
 
       <Button 
          onPress={handleAddNewList} 
-         activeOpacity={0.5}
+         title="Adicionar"
       />
 
       <Text style={ [styles.title, { marginVertical: 40 }] }>
