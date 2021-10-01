@@ -8,7 +8,7 @@ import {
 export function ItemList({ list }) {
    return(
       <TouchableOpacity style={ styles.buttonList }>
-         <Text style={ styles.textList } key={list}>
+         <Text style={ styles.textList }>
             {list}
          </Text>
       </TouchableOpacity>
