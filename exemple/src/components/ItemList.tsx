@@ -1,13 +1,21 @@
 import React from "react";
 import {
    TouchableOpacity,
+   TouchableOpacityProps,
    Text,
    StyleSheet,
 } from 'react-native';
 
-export function ItemList({ list }) {
+interface ItemListProps extends TouchableOpacityProps {
+   list: string;
+}
+
+export function ItemList({ list, ...rest } : ItemListProps) {
    return(
-      <TouchableOpacity style={ styles.buttonList }>
+      <TouchableOpacity 
+         style={ styles.buttonList }
+         {...rest}
+      >
          <Text style={ styles.textList }>
             {list}
          </Text>

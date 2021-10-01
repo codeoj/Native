@@ -30,6 +30,12 @@ export function Home() {
       setMyList(oldState => [...oldState, data]);
    }
 
+   function handleRemoveItem(id: string) {
+      setMyList(oldstate => oldstate.filter(
+         item => item.id !== id
+      ));
+   }
+
    useEffect(() => {
       const currentHour = new Date().getHours();
 
@@ -72,7 +78,10 @@ export function Home() {
          data={myList}
          keyExtractor={item => item.id}
          renderItem={({ item }) => (
-            <ItemList list={item.name}/>
+            <ItemList 
+               list={item.name}
+               onPress={() => handleRemoveItem(item.id)}
+            />
          )}
       />
 
