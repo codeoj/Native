@@ -58,7 +58,10 @@ export function Home() {
          onChangeText={setNewList}
       />
 
-      <Button onPress={handleAddNewList} />
+      <Button 
+         onPress={handleAddNewList} 
+         activeOpacity={0.5}
+      />
 
       <Text style={ [styles.title, { marginVertical: 40 }] }>
          My List
