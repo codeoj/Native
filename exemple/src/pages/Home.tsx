@@ -11,13 +11,23 @@ import {
 import { Button } from '../components/Button';
 import { ItemList } from '../components/ItemList';
 
+interface ListData {
+   id: string;
+   name: string;
+}
+
 export function Home() {
    const [newList, setNewList] = useState('');
-   const [myList, setMyList] = useState([]);
+   const [myList, setMyList] = useState<ListData[]>([]);
    const [greeting, setGreeting] = useState('');
 
    function handleAddNewList() {
-      setMyList(oldState => [...oldState, newList]);
+      const data = {
+         id: String(new Date().getTime()),
+         name: newList
+      }
+
+      setMyList(oldState => [...oldState, data]);
    }
 
    useEffect(() => {
@@ -57,9 +67,9 @@ export function Home() {
       
       <FlatList 
          data={myList}
-         keyExtractor={item => item}
+         keyExtractor={item => item.id}
          renderItem={({ item }) => (
-            <ItemList list={item}/>
+            <ItemList list={item.name}/>
          )}
       />
 
