@@ -1,1 +1,1 @@
-# to-do app
+# Items list app
